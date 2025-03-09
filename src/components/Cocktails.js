@@ -33,7 +33,6 @@ function Cocktails() {
   ) : cocktails.length > 0 ? (
     cocktails.map((cocktail) => (
       <CocktailCard
-        key={cocktail.id}
         id={cocktail.id}
         name={cocktail.name}
         category={cocktail.category}

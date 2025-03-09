@@ -26,11 +26,65 @@ nav a {
 
 main {
   margin: 0;
-  padding-top: 80px;
+  margin-top: 100px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 20px;
   width: 100%;
-  height: 1100px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+main div {
+  margin: 10px;
+  border-radius: 5%;
+  text-align: center;
+  width: min(calc(100% / 5), 200px);
+  height: auto;
+  padding: 5px 5px;
+  background-color: #d9e8ff;
+}
+
+main div > h1 {
+  font-size: 24px;
+}
+
+main div > p {
+  font-size: 16px;
+}
+
+main div > img {
+  width: 85%;
+  border-radius: 5%;
+  margin-bottom: 10px;
+}
+
+main div > button {
+  background-color: #4caf50;
+  width: 85%;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+  background-color: #45a049; /* Zmiana koloru przy najechaniu */
+  transform: scale(1.1); /* Powiększenie przy najechaniu */
+}
+
+.button:active {
+  background-color: #3e8e41; /* Zmiana koloru po kliknięciu */
+  transform: scale(1); /* Normalny rozmiar po kliknięciu */
 }
 
 footer {
