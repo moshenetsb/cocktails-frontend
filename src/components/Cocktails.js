@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import CocktailCard from "./CocktailCard";
 
 function Cocktails() {
   const [cocktails, setCocktails] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(15);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get("page")) || 1;
 
   useEffect(() => {
     const fetchCocktails = async (page) => {
@@ -32,13 +34,13 @@ function Cocktails() {
 
   const goToPreviousPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+      navigate(`/?page=${currentPage - 1}`);
     }
   };
 
   const goToNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+    if (currentPage < 15) {
+      navigate(`/?page=${currentPage + 1}`);
     }
   };
 
@@ -60,10 +62,8 @@ function Cocktails() {
         <button onClick={goToPreviousPage} disabled={currentPage === 1}>
           Previous
         </button>
-        <span>
-          Page {currentPage} of {totalPages}
-        </span>
-        <button onClick={goToNextPage} disabled={currentPage === totalPages}>
+        <span>Page {currentPage} of 15</span>
+        <button onClick={goToNextPage} disabled={currentPage === 15}>
           Next
         </button>
       </div>
