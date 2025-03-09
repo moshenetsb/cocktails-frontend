@@ -1,5 +1,9 @@
 function Main() {
-  return <main></main>;
+  return (
+    <main>
+      <p>lorem dolor</p>
+    </main>
+  );
 }
 
 export default Main;

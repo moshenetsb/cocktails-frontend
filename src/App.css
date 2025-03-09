@@ -2,19 +2,32 @@ nav {
   background-color: #d9e8ff;
   width: 100%;
   height: auto;
-  padding: 15px;
+  padding: 20px 60px;
   position: fixed;
   top: 0;
   opacity: 99%;
+  text-align: center;
+  display: flex;
 }
 
 nav img {
   width: 50px;
 }
 
+nav a {
+  text-decoration: none;
+  color: #203560;
+  margin: 0 30px;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
 main {
+  padding-top: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
   width: 100%;
-  height: 500px;
+  height: 1100px;
 }
 
 footer {
