@@ -32,12 +32,16 @@ main {
   padding-bottom: 20px;
   width: 100%;
   height: auto;
+}
+
+.cocktails {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  margin-bottom: 20px;
 }
 
-main div {
+.cocktails div {
   margin: 10px;
   border-radius: 5%;
   text-align: center;
@@ -47,21 +51,21 @@ main div {
   background-color: #d9e8ff;
 }
 
-main div > h1 {
+.cocktails div > h1 {
   font-size: 24px;
 }
 
-main div > p {
+.cocktails div > p {
   font-size: 16px;
 }
 
-main div > img {
+.cocktails div > img {
   width: 85%;
   border-radius: 5%;
   margin-bottom: 10px;
 }
 
-main div > button {
+button {
   background-color: #4caf50;
   width: 85%;
   border: none;
@@ -77,14 +81,27 @@ main div > button {
   transition: background-color 0.3s, transform 0.2s;
 }
 
-.button:hover {
+button:hover {
   background-color: #45a049; /* Zmiana koloru przy najechaniu */
   transform: scale(1.1); /* Powiększenie przy najechaniu */
 }
 
-.button:active {
+button:active {
   background-color: #3e8e41; /* Zmiana koloru po kliknięciu */
   transform: scale(1); /* Normalny rozmiar po kliknięciu */
+}
+
+.karuzela {
+  display: flex;
+  justify-content: center;
+}
+
+.karuzela > button {
+  width: auto;
+}
+
+.karuzela > span {
+  margin: 10px 20px;
 }
 
 footer {
