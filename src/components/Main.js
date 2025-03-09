@@ -1,7 +1,9 @@
+import Cocktails from "./Cocktails";
+
 function Main() {
   return (
     <main>
-      <p>lorem dolor</p>
+      <Cocktails />
     </main>
   );
 }
