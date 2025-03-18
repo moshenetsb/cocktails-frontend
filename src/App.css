@@ -83,13 +83,13 @@ button {
 }
 
 button:hover {
-  background-color: #45a049; /* Zmiana koloru przy najechaniu */
-  transform: scale(1.1); /* Powiększenie przy najechaniu */
+  background-color: #45a049;
+  transform: scale(1.1);
 }
 
 button:active {
-  background-color: #3e8e41; /* Zmiana koloru po kliknięciu */
-  transform: scale(1); /* Normalny rozmiar po kliknięciu */
+  background-color: #3e8e41;
+  transform: scale(1);
 }
 
 .karuzela {

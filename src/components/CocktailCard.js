@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function CocktailCard({ id, name, category, imageUrl }) {
   const navigate = useNavigate();
