@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation.js";
 import Main from "./components/Main.js";
 import Favourites from "./components/Favourites.js";
 import Footer from "./components/Footer.js";
+import CocktailDetails from "./components/CocktailDetails.js";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/favourites" element={<Favourites />} />
+          <Route path="/cocktails/:id" element={<CocktailDetails />} />
         </Routes>
 
         <Footer />
