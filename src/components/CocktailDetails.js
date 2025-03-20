@@ -32,33 +32,63 @@ function CocktailDetails() {
 
   return (
     <main>
-      {loading ? (
-        <div>Loading... Please wait</div>
-      ) : cocktail === null ? (
-        <div>Cocktail {id} not found.</div>
-      ) : (
-        <div className="cocktailDetails">
-          <h1>{cocktail.name}</h1>
-          <img src={cocktail.imageUrl} alt={"Image of cocktail " + id}></img>
-          <p>Category: {cocktail.category}</p>
-          <p>Glass: {cocktail.glass}</p>
-          <p>Instruction: {cocktail.instructions}</p>
-          <details>
-            <summary>Ingredients</summary>{" "}
-            {cocktail.ingredients.lenght == 0 ? (
-              <p>No information about ingredients</p>
-            ) : (
-              <ul>
-                {cocktail.ingredients.map((ingredient) => (
-                  <li>
-                    {ingredient.name} {ingredient.alcohol ? " (alcohol)" : ""}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </details>
-        </div>
-      )}
+      <div className="wrapper">
+        {loading ? (
+          <div>Loading... Please wait</div>
+        ) : cocktail === null ? (
+          <div>Cocktail {id} not found.</div>
+        ) : (
+          <div className="cocktailDetails">
+            <h1>{cocktail.name}</h1>
+
+            <section>
+              <img
+                src={cocktail.imageUrl}
+                alt={"Image of cocktail " + id}
+              ></img>
+              <div className="content">
+                <p>
+                  <b>
+                    <u>Category:</u>
+                  </b>{" "}
+                  {cocktail.category}
+                </p>
+                <p>
+                  <b>
+                    <u>Glass:</u>
+                  </b>{" "}
+                  {cocktail.glass}
+                </p>
+                <p>
+                  <b>
+                    <u>Instruction:</u>
+                  </b>{" "}
+                  {cocktail.instructions}
+                </p>
+                <details>
+                  <summary>
+                    <b>
+                      <u>Ingredients</u>
+                    </b>
+                  </summary>{" "}
+                  {cocktail.ingredients.lenght === 0 ? (
+                    <p>No information about ingredients</p>
+                  ) : (
+                    <ul>
+                      {cocktail.ingredients.map((ingredient) => (
+                        <li>
+                          {ingredient.name}{" "}
+                          {ingredient.alcohol ? " (alcohol)" : ""}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </details>
+              </div>
+            </section>
+          </div>
+        )}
+      </div>
     </main>
   );
 }

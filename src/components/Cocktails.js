@@ -47,7 +47,7 @@ function Cocktails() {
   return loading ? (
     <div>Loading... Please wait</div>
   ) : cocktails.length > 0 ? (
-    <div>
+    <div className="wrapper">
       <div className="cocktails">
         {cocktails.map((cocktail) => (
           <CocktailCard
