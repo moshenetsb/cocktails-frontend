@@ -1,4 +1,5 @@
 nav {
+  box-sizing: border-box;
   background-color: #d9e8ff;
   width: 100%;
   margin: 0;
@@ -58,14 +59,16 @@ main {
   flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 20px;
+  justify-content: space-between;
 }
 
 .cocktails div {
   margin: 10px;
   border-radius: 5%;
   text-align: center;
-  width: min(calc(100% / 5), 200px);
+  width: min(calc(100% / 3), 250px);
   min-width: 250px;
+  max-width: 300px;
   height: auto;
   padding: 5px 5px;
   background-color: #d9e8ff;
