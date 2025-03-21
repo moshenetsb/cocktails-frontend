@@ -8,7 +8,7 @@ import CocktailDetails from "./components/CocktailDetails.js";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/cocktails-frontend">
       <div className="App">
         <Navigation />
 
