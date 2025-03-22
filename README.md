@@ -1,4 +1,4 @@
-# This is a recruitment task for the frontend section in [KN Solvro](https://github.com/Solvro). (summer semester 2025)
+# This is a recruitment task for the frontend section in [KN Solvro](https://github.com/Solvro). (summer semester 2024/25)
 
 ## In the project were used:
 1. ReactJS
