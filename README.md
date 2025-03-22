@@ -2,7 +2,8 @@
 
 ## In the project were used:
 1. ReactJS
-2. [Cocktails API made by KN Solvro](https://cocktails.solvro.pl)
+2. CSS
+3. [Cocktails API made by KN Solvro](https://cocktails.solvro.pl)
 
 [Link to recruitment task](https://github.com/Solvro/rekrutacja)
 
