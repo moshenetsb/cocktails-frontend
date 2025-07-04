@@ -1,22 +1,30 @@
-# This is a recruitment task for the frontend section in [KN Solvro](https://github.com/Solvro). (summer semester 2024/25)
+# 🍹 Cocktails Frontend
 
-## In the project were used:
-1. ReactJS
-2. CSS
-3. [Cocktails API made by KN Solvro](https://cocktails.solvro.pl)
+A web application developed as a recruitment task for the Frontend Section of [KN Solvro](https://github.com/Solvro) (summer semester 2024/25).
 
-[Link to recruitment task](https://github.com/Solvro/rekrutacja)
+The project allows users to search for cocktails, browse drinks by ingredients, and view detailed cocktail recipes.  
+It uses the official [Cocktails API](https://cocktails.solvro.pl) provided by KN Solvro.
 
-## How to work with React
+---
 
-### Available Scripts
+## 🔧 Technologies
 
-In the project directory, you can run:
+- ReactJS
+- CSS
+- JavaScript
+- Cocktails API
 
-#### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 🔍 Search for cocktails by name (in progress)
+- 🧊 Filter cocktails based on ingredients (in progress)
+- 📋 View detailed drink information  
+- 💡 Responsive and user-friendly interface  
+
+---
+
+## 👤 Author
+
+GitHub [@moshenetsb](https://github.com/moshenetsb)
