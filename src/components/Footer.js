@@ -1,10 +1,10 @@
 import "../App.css";
 
-function Footer() {
+function CopyrightSection() {
   return (
-    <footer>
+    <div className="copyright-section">
       <p>
-        &copy; 2025{" "}
+        Made by{" "}
         <a
           href="https://github.com/moshenetsb"
           target="_blank"
@@ -12,16 +12,49 @@ function Footer() {
         >
           Bohdan Moshenets
         </a>{" "}
-        (Recruitment task for{" "}
+        &copy; 2025
+      </p>
+    </div>
+  );
+}
+
+function DescriptionSection() {
+  return (
+    <div className="description-section">
+      <p>
+        This is a simple React app that allows users to search and browse
+        information about cocktails. It uses the{" "}
+        <a
+          href="https://cocktails.solvro.pl/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Cocktail API
+        </a>{" "}
+        to retrieve cocktail recipes and display them in a user-friendly
+        interface.
+      </p>
+
+      <p>
+        It was developed as part of a recruitment challenge organized by{" "}
         <a
           href="https://solvro.pwr.edu.pl/pl/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Solvro
+          KN Solvro
         </a>
-        )
+        .
       </p>
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer>
+      <DescriptionSection />
+      <CopyrightSection />
     </footer>
   );
 }

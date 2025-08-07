@@ -8,7 +8,7 @@ function CocktailCard({ id, name, category, imageUrl }) {
   }
 
   return (
-    <div>
+    <div className="cocktail-card">
       <h1>{name}</h1>
       <p>{category}</p>
       <img src={imageUrl} alt={"Image of cocktail " + id} />

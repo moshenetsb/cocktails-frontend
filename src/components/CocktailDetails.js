@@ -32,7 +32,7 @@ function CocktailDetails() {
   }, [id]);
 
   return (
-    <main>
+    <>
       <div className="wrapper">
         {loading ? (
           <div>Loading... Please wait</div>
@@ -90,7 +90,7 @@ function CocktailDetails() {
           </div>
         )}
       </div>
-    </main>
+    </>
   );
 }
 
