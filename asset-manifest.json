@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/cocktails-frontend/static/css/main.4c8430ba.css",
-    "main.js": "/cocktails-frontend/static/js/main.1ee7e0ca.js",
-    "static/media/logo.png": "/cocktails-frontend/static/media/logo.824f79a6aa7c82107b25.png",
+    "main.css": "/cocktails-frontend/static/css/main.41f6a411.css",
+    "main.js": "/cocktails-frontend/static/js/main.9e319be6.js",
+    "static/media/logo_solvro_mono.png": "/cocktails-frontend/static/media/logo_solvro_mono.fd8ac667da5c3407eb64.png",
     "index.html": "/cocktails-frontend/index.html",
-    "main.4c8430ba.css.map": "/cocktails-frontend/static/css/main.4c8430ba.css.map",
-    "main.1ee7e0ca.js.map": "/cocktails-frontend/static/js/main.1ee7e0ca.js.map"
+    "main.41f6a411.css.map": "/cocktails-frontend/static/css/main.41f6a411.css.map",
+    "main.9e319be6.js.map": "/cocktails-frontend/static/js/main.9e319be6.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c8430ba.css",
-    "static/js/main.1ee7e0ca.js"
+    "static/css/main.41f6a411.css",
+    "static/js/main.9e319be6.js"
   ]
 }
