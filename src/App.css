@@ -60,6 +60,28 @@ nav {
   font-size: 1.4rem;
   font-weight: bold;
 }
+
+/*Not found page styles*/
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.not-found h1 {
+  font-size: 3rem;
+  color: #ff6347;
+  text-align: center;
+}
+
+.not-found p {
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
 /*Main section styles*/
 main {
   margin: 0;

@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import NotFound from "./NotFound.js";
 
 function CocktailDetails() {
   let [cocktail, setCocktail] = useState(null);
@@ -36,7 +37,7 @@ function CocktailDetails() {
         {loading ? (
           <div>Loading... Please wait</div>
         ) : cocktail === null ? (
-          <div>Cocktail {id} not found.</div>
+          <NotFound />
         ) : (
           <div className="cocktailDetails">
             <h1>{cocktail.name}</h1>

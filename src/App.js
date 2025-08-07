@@ -5,6 +5,7 @@ import Main from "./components/Main.js";
 import Favourites from "./components/Favourites.js";
 import Footer from "./components/Footer.js";
 import CocktailDetails from "./components/CocktailDetails.js";
+import NotFound from "./components/NotFound.js";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/cocktails/:id" element={<CocktailDetails />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         <Footer />
