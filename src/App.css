@@ -3,7 +3,6 @@ nav {
   background-color: #274276;
   width: 100%;
   margin: 0;
-  height: 86px;
   position: sticky;
   top: 0;
   display: flex;
@@ -12,6 +11,7 @@ nav {
   padding: 0;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
   z-index: 10;
+  height: auto;
 }
 .nav-wrapper {
   padding: 0 3%;
@@ -23,7 +23,7 @@ nav {
 
 .nav-wrapper p {
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-left: 10px;
 }
 
@@ -86,8 +86,8 @@ nav {
   border: none;
   background: none;
   color: #fff;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   padding: 0 0;
   font-size: 2.5rem;
   justify-content: end;
@@ -103,7 +103,7 @@ nav {
 @media (max-width: 768px) {
   .site-logo {
     z-index: 12;
-    width: calc(100% - 70px);
+    width: calc(100% - 60px);
   }
 
   .mobile-menu-button {
@@ -121,7 +121,7 @@ nav {
     right: 0;
     width: 100%;
     justify-content: start;
-    padding-top: 110px;
+    padding-top: 100px;
     transform: translateX(-100%);
     height: 100vh;
     height: 100dvh;
@@ -390,7 +390,7 @@ footer {
 
 @media (max-width: 768px) {
   .description-section p {
-    width: 93%;
+    width: 88%;
   }
 }
 
