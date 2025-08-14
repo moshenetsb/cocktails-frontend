@@ -1,24 +1,26 @@
-import logo from "./logo_solvro_mono.png";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import SiteLogo from "./SiteLogo";
+import NavLinks from "./NavLinks";
 
 function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openMobileMenu = () => setIsOpen(true);
+  const closeMobileMenu = () => setIsOpen(false);
+
   return (
     <nav>
       <div className="nav-wrapper">
-        <div className="site-logo">
-          <img src={logo} alt="Logo" />
-          <p>Cocktails App</p>
-        </div>
-        <div className="nav-links">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/favourites">Favourites</Link>
-            </li>
-          </ul>
-        </div>
+        <SiteLogo />
+        <button
+          className="mobile-menu-button"
+          onClick={() => {
+            isOpen ? closeMobileMenu() : openMobileMenu();
+          }}
+        >
+          {isOpen ? "\u26CC" : "\u2630"}
+        </button>
+        <NavLinks isOpen={isOpen} closeMobileMenu={closeMobileMenu} />
       </div>
     </nav>
   );
