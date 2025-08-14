@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/cocktails-frontend/static/css/main.04d8b4be.css",
+    "main.css": "/cocktails-frontend/static/css/main.1f80ce2a.css",
     "main.js": "/cocktails-frontend/static/js/main.0b4b18e4.js",
     "static/media/logo_solvro_mono.png": "/cocktails-frontend/static/media/logo_solvro_mono.fd8ac667da5c3407eb64.png",
     "index.html": "/cocktails-frontend/index.html",
-    "main.04d8b4be.css.map": "/cocktails-frontend/static/css/main.04d8b4be.css.map",
+    "main.1f80ce2a.css.map": "/cocktails-frontend/static/css/main.1f80ce2a.css.map",
     "main.0b4b18e4.js.map": "/cocktails-frontend/static/js/main.0b4b18e4.js.map"
   },
   "entrypoints": [
-    "static/css/main.04d8b4be.css",
+    "static/css/main.1f80ce2a.css",
     "static/js/main.0b4b18e4.js"
   ]
 }
