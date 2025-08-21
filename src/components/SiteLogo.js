@@ -4,7 +4,7 @@ function SiteLogo() {
   return (
     <div className="site-logo">
       <img src={logo} alt="Logo" />
-      <p>Cocktails App</p>
+      <h1>Cocktails App</h1>
     </div>
   );
 }

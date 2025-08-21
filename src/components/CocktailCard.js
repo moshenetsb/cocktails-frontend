@@ -9,10 +9,17 @@ function CocktailCard({ id, name, category, imageUrl }) {
 
   return (
     <div className="cocktail-card">
-      <h1>{name}</h1>
-      <p>{category}</p>
-      <img src={imageUrl} alt={"Image of cocktail " + id} />
-      <button onClick={handleRedirect}>Details</button>
+      <img src={imageUrl} alt={"Image of cocktail " + name} />
+      <div className="cocktail-info">
+        <h2>{name}</h2>
+        <p>{category}</p>
+      </div>
+      <div className="cocktail-card-actions">
+        <button className="details-button" onClick={handleRedirect}>
+          Details
+        </button>
+        <button className="favourite-button">♡</button>
+      </div>
     </div>
   );
 }

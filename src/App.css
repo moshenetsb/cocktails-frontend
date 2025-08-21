@@ -21,7 +21,7 @@ nav {
   align-items: center;
 }
 
-.nav-wrapper p {
+.nav-wrapper h1 {
   color: #fff;
   font-size: 1.4rem;
   margin-left: 10px;
@@ -44,7 +44,10 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: end;
+  transition: none;
+  transform: none;
 }
+
 .nav-links ul {
   display: flex;
   column-gap: 40px;
@@ -95,12 +98,12 @@ nav {
   cursor: pointer;
 }
 
-.nav-links.show {
-  display: flex;
-  transform: translateX(0);
-}
-
 @media (max-width: 768px) {
+  .nav-links.show {
+    display: flex;
+    transform: translateX(0);
+  }
+
   .site-logo {
     z-index: 12;
     width: calc(100% - 60px);
@@ -126,7 +129,7 @@ nav {
     height: 100vh;
     height: 100dvh;
     z-index: 11;
-    transition: transform 0.2s ease 0.2s;
+    transition: transform 0.2s ease;
   }
 
   .nav-links ul {
@@ -174,46 +177,114 @@ main {
   justify-content: center;
 }
 
-.wrapper {
+.main-wrapper {
   padding: 20px 3%;
+  height: auto;
   display: flex;
   flex-direction: column;
   max-width: 1540px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .cocktails {
-  display: flex;
-  flex-wrap: wrap;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+  align-items: center;
   column-gap: 3%;
   row-gap: 20px;
-  margin-bottom: 20px;
-  justify-content: space-between;
 }
 
 .cocktail-card {
-  border-radius: 5%;
-  text-align: center;
-  width: 240px;
-  height: auto;
-  padding: 5px 5px;
-  background-color: #d9e8ff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1%;
+  box-shadow: 0 4px 8px rgba(0, 11, 71, 0.1);
+  width: auto;
+  height: 100%;
+  background-color: #f2f6fd;
+  overflow: hidden;
+  transition: all 0.5s ease;
 }
 
-.cocktail-card > h1 {
-  font-size: 24px;
-}
-
-.cocktail-card > p {
-  font-size: 16px;
+.cocktail-card:hover {
+  box-shadow: 0 6px 12px rgba(1, 101, 178, 0.6);
 }
 
 .cocktail-card > img {
-  width: 85%;
-  border-radius: 5%;
-  margin-bottom: 10px;
+  width: 100%;
+  object-fit: cover;
 }
 
-main button {
+.cocktail-info {
+  padding: 10px 20px;
+  text-align: left;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+}
+
+.cocktail-info > h2 {
+  font-size: 1.3rem;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.cocktail-info > p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.cocktail-card-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+.details-button {
+  flex-grow: 1;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 2%;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.details-button:hover {
+  background-color: #3700b3;
+}
+
+.favourite-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  line-height: 1;
+  background: none;
+  padding: 0;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+.karuzela {
+  padding-top: 20px;
+}
+
+.karuzela button {
   background-color: #4caf50;
   width: 85%;
   border: none;
@@ -229,12 +300,12 @@ main button {
   transition: background-color 0.3s, transform 0.2s;
 }
 
-main button:hover {
+.karuzela button:hover {
   background-color: #45a049;
   transform: scale(1.1);
 }
 
-main button:active {
+.karuzela button:active {
   background-color: #3e8e41;
   transform: scale(1);
 }
@@ -252,6 +323,7 @@ main button:active {
   margin: 10px 20px;
 }
 
+/*Cocktail details styles*/
 section {
   display: flex;
   flex-wrap: wrap;
@@ -379,7 +451,8 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 3%;
+  padding: 10px 3%;
+  box-sizing: border-box;
 }
 
 .description-section p {

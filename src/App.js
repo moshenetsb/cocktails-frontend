@@ -14,12 +14,14 @@ function App() {
         <Navigation />
 
         <main>
-          <Routes>
-            <Route path="/" element={<Cocktails />} />
-            <Route path="/favourites" element={<Favourites />} />
-            <Route path="/cocktails/:id" element={<CocktailDetails />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <div className="main-wrapper">
+            <Routes>
+              <Route path="/" element={<Cocktails />} />
+              <Route path="/favourites" element={<Favourites />} />
+              <Route path="/cocktails/:id" element={<CocktailDetails />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
         </main>
 
         <Footer />
