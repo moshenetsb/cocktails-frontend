@@ -1,4 +1,4 @@
-import logo from "./logo_solvro_mono.png";
+import logo from "../images/logo_solvro_mono.png";
 
 function SiteLogo() {
   return (

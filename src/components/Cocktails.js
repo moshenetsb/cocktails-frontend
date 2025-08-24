@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import CocktailCard from "./CocktailCard";
+import CocktailsList from "./CocktailsList";
+import Pagination from "./Pagination";
+import NoCocktails from "./NoCocktails";
 
 function Cocktails() {
   const [cocktails, setCocktails] = useState([]);
@@ -33,44 +35,27 @@ function Cocktails() {
   }, [currentPage]);
 
   const goToPreviousPage = () => {
-    if (currentPage > 1) {
-      navigate(`/?page=${currentPage - 1}`);
-    }
+    navigate(`/?page=${currentPage - 1}`);
   };
 
   const goToNextPage = () => {
-    if (currentPage < 15) {
-      navigate(`/?page=${currentPage + 1}`);
-    }
+    navigate(`/?page=${currentPage + 1}`);
   };
 
   return loading ? (
     <div>Loading... Please wait</div>
   ) : cocktails.length > 0 ? (
     <>
-      <div className="cocktails">
-        {cocktails.map((cocktail) => (
-          <CocktailCard
-            key={cocktail.id}
-            id={cocktail.id}
-            name={cocktail.name}
-            category={cocktail.category}
-            imageUrl={cocktail.imageUrl}
-          />
-        ))}
-      </div>
-      <div className="karuzela">
-        <button onClick={goToPreviousPage} disabled={currentPage === 1}>
-          Previous
-        </button>
-        <span>Page {currentPage} of 15</span>
-        <button onClick={goToNextPage} disabled={currentPage === 15}>
-          Next
-        </button>
-      </div>
+      <CocktailsList cocktails={cocktails} />
+      <Pagination
+        currentPage={currentPage}
+        lastPageNumber={15}
+        goToPreviousPage={goToPreviousPage}
+        goToNextPage={goToNextPage}
+      />
     </>
   ) : (
-    <div>No cocktails.</div>
+    <NoCocktails />
   );
 }
 

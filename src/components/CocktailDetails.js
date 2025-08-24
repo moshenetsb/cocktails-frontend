@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import NotFound from "./NotFound.js";
 
 function CocktailDetails() {
-  let [cocktail, setCocktail] = useState(null);
+  const [cocktail, setCocktail] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 

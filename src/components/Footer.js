@@ -1,5 +1,3 @@
-import "../App.css";
-
 function Footer() {
   function CopyrightSection() {
     return (
@@ -43,9 +41,8 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            KN Solvro
+            KN Solvro.
           </a>
-          .
         </p>
       </div>
     );

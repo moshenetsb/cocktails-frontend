@@ -155,7 +155,7 @@ nav {
   justify-content: center;
 }
 
-.not-found h1 {
+.not-found h2 {
   font-size: 3rem;
   color: #ff6347;
   text-align: center;
@@ -187,10 +187,11 @@ main {
   box-sizing: border-box;
 }
 
+/*Cocktails list styles*/
 .cocktails {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 10px;
   align-items: center;
   column-gap: 3%;
@@ -242,7 +243,7 @@ main {
 .cocktail-card-actions {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: min(10px, 2%);
   width: 100%;
   align-items: center;
   padding: 10px 20px;
@@ -270,57 +271,70 @@ main {
 .favourite-button {
   display: flex;
   align-items: center;
+  justify-content: end;
   border: none;
   cursor: pointer;
   font-size: 2.5rem;
+  height: 100%;
   line-height: 1;
+  aspect-ratio: 1/1;
   background: none;
   padding: 0;
-  margin-left: auto;
   box-sizing: border-box;
 }
 
-.karuzela {
+.pagination {
   padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
 }
 
-.karuzela button {
-  background-color: #4caf50;
-  width: 85%;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  margin-bottom: 10px;
+.pagination button {
+  background: none;
+  border: 1px solid gray;
+  padding: 6px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s, transform 0.2s;
+  border-radius: 20%;
+  aspect-ratio: 1/1;
+  width: 40px;
+  transition: background-color 0.5s ease;
 }
 
-.karuzela button:hover {
-  background-color: #45a049;
-  transform: scale(1.1);
+.pagination button:not(:disabled):hover {
+  background-color: rgb(230, 230, 230);
 }
 
-.karuzela button:active {
-  background-color: #3e8e41;
-  transform: scale(1);
+.pagination button:disabled {
+  border-color: lightgray;
+  color: lightgray;
+  cursor: not-allowed;
 }
 
-.karuzela {
+.pagination span {
+  margin: 10px;
+}
+
+/*No cocktails available styles*/
+.no-cocktails {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
-.karuzela > button {
-  width: auto;
+.no-cocktails img {
+  width: 150px;
 }
 
-.karuzela > span {
-  margin: 10px 20px;
+.no-cocktails h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #ff6347;
 }
 
 /*Cocktail details styles*/
@@ -426,6 +440,7 @@ main h1 {
 /*Footer styles*/
 footer {
   display: flex;
+  font-size: 1rem;
   background-color: #274276;
   flex-direction: column;
   justify-content: center;
@@ -457,8 +472,7 @@ footer {
 
 .description-section p {
   text-align: justify;
-  max-width: 500px;
-  width: 40%;
+  width: min(40%, 500px);
 }
 
 @media (max-width: 768px) {
