@@ -1,28 +1,21 @@
 import "./styles/App.css";
-import { Route, Routes } from "react-router-dom";
-import Navigation from "./components/Navigation.js";
-import Cocktails from "./components/Cocktails.js";
-import Favourites from "./components/Favourites.js";
-import Footer from "./components/Footer.js";
-import CocktailDetails from "./components/CocktailDetails.js";
-import NotFound from "./components/NotFound.js";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen.js";
+import FavouritesScreen from "./screens/FavouritesScreen.js";
+import CocktailDetailsScreen from "./screens/CocktailDetailsScreen.js";
+import NotFoundScreen from "./screens/NotFoundScreen.js";
+
 function App() {
   return (
     <div className="App">
-      <Navigation />
-
-      <main>
-        <div className="main-wrapper">
-          <Routes>
-            <Route path="/" element={<Cocktails />} />
-            <Route path="/favourites" element={<Favourites />} />
-            <Route path="/cocktails/:id" element={<CocktailDetails />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </main>
-
-      <Footer />
+      <Router basename="/cocktails-frontend">
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/favourites" element={<FavouritesScreen />} />
+          <Route path="/cocktails/:id" element={<CocktailDetailsScreen />} />
+          <Route path="*" element={<NotFoundScreen />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
