@@ -222,7 +222,7 @@ main {
   box-shadow: 0 6px 12px rgba(1, 101, 178, 0.6);
 }
 
-.cocktail-card > img {
+.cocktail-card img {
   width: 100%;
   object-fit: cover;
 }
@@ -237,13 +237,13 @@ main {
   justify-content: flex-start;
 }
 
-.cocktail-info > h2 {
+.cocktail-info h2 {
   font-size: 1.3rem;
   margin: 0;
   margin-bottom: 5px;
 }
 
-.cocktail-info > p {
+.cocktail-info p {
   font-size: 1rem;
   margin: 0;
 }
@@ -251,7 +251,7 @@ main {
 .cocktail-card-actions {
   display: flex;
   flex-direction: row;
-  gap: min(10px, 4%);
+  gap: 10px;
   width: 100%;
   align-items: center;
   justify-content: space-between;
@@ -441,7 +441,7 @@ main summary:hover {
   text-decoration: underline;
 }
 
-main h1 {
+main h2 {
   text-align: center;
 }
 

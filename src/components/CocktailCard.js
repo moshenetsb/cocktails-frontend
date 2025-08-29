@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as Heart } from "../images/heart.svg";
+import { ReactComponent as Heart } from "../assets/heart.svg";
 
 function CocktailCard({
   id,

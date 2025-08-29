@@ -20,7 +20,6 @@ function CocktailDetails() {
 
         const data = await response.json();
         setCocktail(data.data);
-        console.log(data.data);
         setLoading(false);
       } catch (error) {
         console.error("Data download error:", error);
@@ -40,7 +39,7 @@ function CocktailDetails() {
           <NotFound />
         ) : (
           <div className="cocktailDetails">
-            <h1>{cocktail.name}</h1>
+            <h2>{cocktail.name}</h2>
 
             <section>
               <img
@@ -77,7 +76,7 @@ function CocktailDetails() {
                   ) : (
                     <ul>
                       {cocktail.ingredients.map((ingredient) => (
-                        <li>
+                        <li key={ingredient.id}>
                           {ingredient.name}{" "}
                           {ingredient.alcohol ? " (alcohol)" : ""}
                         </li>

@@ -1,4 +1,4 @@
-import no_cocktails_available from "../images/no_cocktails_available.png";
+import no_cocktails_available from "../assets/no_cocktails_available.png";
 
 function NoCocktails({ message = "NO COCKTAILS AVAILABLE" }) {
   return (

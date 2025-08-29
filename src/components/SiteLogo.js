@@ -1,4 +1,4 @@
-import logo from "../images/logo_solvro_mono.png";
+import logo from "../assets/logo_solvro_mono.png";
 import { Link } from "react-router-dom";
 
 function SiteLogo() {
