@@ -34,6 +34,14 @@ nav {
   margin-right: auto;
 }
 
+.site-logo a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  text-decoration: none;
+}
+
 .site-logo img {
   height: 40px;
   width: auto;
@@ -243,9 +251,10 @@ main {
 .cocktail-card-actions {
   display: flex;
   flex-direction: row;
-  gap: min(10px, 2%);
+  gap: min(10px, 4%);
   width: 100%;
   align-items: center;
+  justify-content: space-between;
   padding: 10px 20px;
   box-sizing: border-box;
   margin-top: auto;
@@ -269,18 +278,17 @@ main {
 }
 
 .favourite-button {
-  display: flex;
-  align-items: center;
-  justify-content: end;
   border: none;
   cursor: pointer;
-  font-size: 2.5rem;
-  height: 100%;
-  line-height: 1;
+  height: 37px;
   aspect-ratio: 1/1;
   background: none;
   padding: 0;
-  box-sizing: border-box;
+}
+
+.favourite-button svg {
+  width: 95%;
+  height: 95%;
 }
 
 .pagination {

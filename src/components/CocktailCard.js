@@ -1,10 +1,24 @@
 import { useNavigate } from "react-router-dom";
+import { ReactComponent as Heart } from "../images/heart.svg";
 
-function CocktailCard({ id, name, category, imageUrl }) {
+function CocktailCard({
+  id,
+  name,
+  category,
+  imageUrl,
+  favourite = false,
+  addFavourite,
+  removeFavourite,
+}) {
   const navigate = useNavigate();
 
-  function handleRedirect() {
+  function handleRedirectToDetails() {
     navigate(`/cocktails/${id}`);
+  }
+
+  function toggleFavourite() {
+    if (favourite) removeFavourite(id);
+    else addFavourite(id);
   }
 
   return (
@@ -15,10 +29,22 @@ function CocktailCard({ id, name, category, imageUrl }) {
         <p>{category}</p>
       </div>
       <div className="cocktail-card-actions">
-        <button className="details-button" onClick={handleRedirect}>
+        <button className="details-button" onClick={handleRedirectToDetails}>
           Details
         </button>
-        <button className="favourite-button">♡</button>
+        <button
+          className="favourite-button"
+          onClick={toggleFavourite}
+          aria-label={
+            favourite ? "Remove from favourites" : "Add to favourites"
+          }
+        >
+          <Heart
+            fill={favourite ? "#ff6347" : "none"}
+            stroke={favourite ? "#ff6347" : "currentColor"}
+            strokeWidth="1.5"
+          />
+        </button>
       </div>
     </div>
   );

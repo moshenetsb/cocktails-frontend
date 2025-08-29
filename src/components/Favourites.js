@@ -1,20 +1,11 @@
-import { useReducer } from "react";
+import { useFavourites } from "../hooks/FavouritesContext";
 import NoCocktails from "./NoCocktails";
 
-function loadFavouritesFromLocalStorage(initialStateFromProps) {
-  const data = window.localStorage.getItem("favourites");
-  return data ? JSON.parse(data) : {};
-}
-
 function Favourites() {
-  const [favourites, dispatch] = useReducer(
-    null,
-    {},
-    loadFavouritesFromLocalStorage
-  );
-  console.log(Object.keys(favourites));
-  if (Object.keys(favourites)) {
-    return <NoCocktails />;
+  const { favourites } = useFavourites();
+
+  if (!favourites || favourites.length === 0) {
+    return <NoCocktails message="You have no favourite cocktails yet." />;
   } else {
     return (
       <>
