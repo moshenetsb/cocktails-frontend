@@ -15,9 +15,15 @@
     <title>Cocktails App</title>
 
     <script type="text/javascript">
-        const path = window.location.pathname + window.location.search + window.location.hash;
-        const redirectParam = encodeURIComponent(path);
-        window.location.replace(`/?redirect=${redirectParam}`);
+        const basename = "/cocktails-frontend";
+        let path = window.location.pathname;
+
+        if (path.startsWith(basename)) {
+            path = path.slice(basename.length);
+        }
+
+        const redirectParam = encodeURIComponent(path + window.location.search + window.location.hash);
+        window.location.replace(`${basename}/?redirect=${redirectParam}`);
     </script>
 </head>
 
