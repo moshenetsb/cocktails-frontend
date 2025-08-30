@@ -8,7 +8,7 @@ class ApiError extends Error {
   }
 }
 
-async function fetchCocktailById(id) {
+async function fetchCocktailById({ id }) {
   try {
     const response = await fetch(`${API_BASE}/cocktails/${id}`);
 
@@ -29,4 +29,30 @@ async function fetchCocktailById(id) {
   }
 }
 
-export { fetchCocktailById };
+async function fetchCocktails({ page = 1, perPage = 20, otherParams = "" }) {
+  try {
+    if (page < 1) {
+      throw new ApiError(`Page ${page} was not found`, 404);
+    }
+
+    const response = await fetch(
+      `${API_BASE}/cocktails?page=${page}&perPage=${perPage}${
+        otherParams ? `&${otherParams}` : ""
+      }`
+    );
+
+    if (!response.ok) {
+      throw new ApiError("Failed to fetch cocktails", response.status);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      throw error;
+    }
+    throw new ApiError("Network error or invalid API_URL", 0);
+  }
+}
+
+export { fetchCocktailById, fetchCocktails };

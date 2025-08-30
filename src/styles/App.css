@@ -281,6 +281,7 @@ main {
   font-size: 1.3rem;
   margin: 0;
   margin-bottom: 5px;
+  text-align: left;
 }
 
 .cocktail-info p {

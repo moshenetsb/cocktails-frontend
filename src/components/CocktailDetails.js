@@ -17,7 +17,7 @@ function CocktailDetails() {
     async function loadCocktail() {
       try {
         setState({ cocktail: null, loading: true, error: null });
-        const data = await fetchCocktailById(id);
+        const data = await fetchCocktailById({ id });
         setState({ cocktail: data.data, loading: false, error: null });
       } catch (e) {
         console.error(e);
@@ -35,66 +35,64 @@ function CocktailDetails() {
   if (error) {
     if (error.status === 404) {
       return <NotFound />;
-    } else if (error.status === 0) {
+    }
+    if (error.status === 0) {
       return (
         <ErrorComponent
           title="Offline"
           message="Cannot reach server. Check your connection."
         />
       );
-    } else {
-      return <ErrorComponent />;
     }
+    return <ErrorComponent />;
   }
 
   return (
-    <>
-      <div className="cocktailDetails">
-        <h2>{cocktail.name}</h2>
+    <div className="cocktailDetails">
+      <h2>{cocktail.name}</h2>
 
-        <section>
-          <img src={cocktail.imageUrl} alt={"Image of cocktail " + id}></img>
-          <div className="content">
-            <p>
+      <section>
+        <img src={cocktail.imageUrl} alt={"Image of cocktail " + id}></img>
+        <div className="content">
+          <p>
+            <b>
+              <u>Category:</u>
+            </b>{" "}
+            {cocktail.category}
+          </p>
+          <p>
+            <b>
+              <u>Glass:</u>
+            </b>{" "}
+            {cocktail.glass}
+          </p>
+          <p>
+            <b>
+              <u>Instruction:</u>
+            </b>{" "}
+            {cocktail.instructions}
+          </p>
+          <details>
+            <summary>
               <b>
-                <u>Category:</u>
-              </b>{" "}
-              {cocktail.category}
-            </p>
-            <p>
-              <b>
-                <u>Glass:</u>
-              </b>{" "}
-              {cocktail.glass}
-            </p>
-            <p>
-              <b>
-                <u>Instruction:</u>
-              </b>{" "}
-              {cocktail.instructions}
-            </p>
-            <details>
-              <summary>
-                <b>
-                  <u>Ingredients</u>
-                </b>
-              </summary>{" "}
-              {cocktail.ingredients.lenght === 0 ? (
-                <p>No information about ingredients</p>
-              ) : (
-                <ul>
-                  {cocktail.ingredients.map((ingredient) => (
-                    <li key={ingredient.id}>
-                      {ingredient.name} {ingredient.alcohol ? " (alcohol)" : ""}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </details>
-          </div>
-        </section>
-      </div>
-    </>
+                <u>Ingredients</u>
+              </b>
+            </summary>{" "}
+            {cocktail.ingredients.lenght === 0 ? (
+              <p>No information about ingredients</p>
+            ) : (
+              <ul>
+                {cocktail.ingredients.map((ingredient) => (
+                  <li key={ingredient.id}>
+                    {ingredient.name} {ingredient.alcohol ? " (alcohol)" : ""}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </details>
+        </div>
+      </section>
+    </div>
   );
 }
 

@@ -4,35 +4,46 @@ import CocktailsList from "./CocktailsList";
 import Pagination from "./Pagination";
 import NoCocktails from "./NoCocktails";
 import Loading from "./Loading";
+import NotFound from "./NotFound";
+import { default as ErrorComponent } from "./Error";
+import { fetchCocktails } from "../api/cocktails";
 
 function Cocktails() {
-  const [cocktails, setCocktails] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState({
+    cocktails: [],
+    meta: {},
+    loading: true,
+    error: null,
+  });
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
 
   useEffect(() => {
-    const fetchCocktails = async (page) => {
+    const loadCocktails = async (page) => {
       try {
-        const response = await fetch(
-          `https://cocktails.solvro.pl/api/v1/cocktails?page=${page}`
-        );
+        setState({
+          cocktails: [],
+          meta: {},
+          loading: true,
+          error: null,
+        });
 
-        if (!response.ok) {
-          throw new Error(`ERROR: ${response.status}`);
-        }
+        const data = await fetchCocktails({ page });
 
-        const data = await response.json();
-        setCocktails(data.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Data download error:", error);
-        setLoading(false);
+        setState({
+          cocktails: data.data,
+          meta: data.meta,
+          loading: false,
+          error: null,
+        });
+      } catch (e) {
+        console.error(e);
+        setState({ cocktails: [], meta: {}, loading: false, error: e });
       }
     };
 
-    fetchCocktails(currentPage);
+    loadCocktails(currentPage);
   }, [currentPage]);
 
   const goToPreviousPage = () => {
@@ -43,20 +54,43 @@ function Cocktails() {
     navigate(`/?page=${currentPage + 1}`);
   };
 
-  return loading ? (
-    <Loading />
-  ) : cocktails.length > 0 ? (
+  const { cocktails, meta, loading, error } = state;
+
+  if (loading) return <Loading />;
+
+  if (error) {
+    if (error.status === 404) {
+      return <NotFound />;
+    }
+    if (error.status === 0) {
+      return (
+        <ErrorComponent
+          title="Offline"
+          message="Cannot reach server. Check your connection."
+        />
+      );
+    }
+    return <ErrorComponent />;
+  }
+
+  if (currentPage > meta.lastPage) {
+    return <NotFound />;
+  }
+
+  if (cocktails.length <= 0) {
+    return <NoCocktails />;
+  }
+
+  return (
     <>
       <CocktailsList cocktails={cocktails} />
       <Pagination
         currentPage={currentPage}
-        lastPageNumber={15}
+        lastPageNumber={meta.lastPage}
         goToPreviousPage={goToPreviousPage}
         goToNextPage={goToNextPage}
       />
     </>
-  ) : (
-    <NoCocktails />
   );
 }
 

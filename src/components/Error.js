@@ -1,4 +1,4 @@
-function Error({ title = "Error", message = "Something went wrong." }) {
+function Error({ title = "ERROR", message = "Something went wrong." }) {
   return (
     <div className="error-page">
       <h2>{title}</h2>
