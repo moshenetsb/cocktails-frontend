@@ -17,9 +17,7 @@
     <script type="text/javascript">
         const path = window.location.pathname + window.location.search + window.location.hash;
         const redirectParam = encodeURIComponent(path);
-        const basename = "/cocktails-frontend";
-
-        window.location.replace(`${basename}/?redirect=${redirectParam}`);
+        window.location.replace(`/?redirect=${redirectParam}`);
     </script>
 </head>
 
