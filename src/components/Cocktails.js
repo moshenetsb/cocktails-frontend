@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import CocktailsList from "./CocktailsList";
 import Pagination from "./Pagination";
 import NoCocktails from "./NoCocktails";
+import Loading from "./Loading";
 
 function Cocktails() {
   const [cocktails, setCocktails] = useState([]);
@@ -43,7 +44,7 @@ function Cocktails() {
   };
 
   return loading ? (
-    <div>Loading... Please wait</div>
+    <Loading />
   ) : cocktails.length > 0 ? (
     <>
       <CocktailsList cocktails={cocktails} />
