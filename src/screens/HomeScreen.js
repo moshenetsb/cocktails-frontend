@@ -1,7 +1,7 @@
 import MainLayout from "../layouts/MainLayout";
 import Cocktails from "../components/Cocktails";
 
-function HomeScreen(params) {
+function HomeScreen() {
   return (
     <MainLayout>
       <Cocktails />

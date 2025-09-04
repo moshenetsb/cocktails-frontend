@@ -1,9 +1,10 @@
 import MainLayout from "../layouts/MainLayout";
 import Favourites from "../components/Favourites";
+import FavouritesHeader from "../components/FavouritesHeader";
 
-function FavouritesScreen(params) {
+function FavouritesScreen() {
   return (
-    <MainLayout>
+    <MainLayout header={FavouritesHeader}>
       <Favourites />
     </MainLayout>
   );

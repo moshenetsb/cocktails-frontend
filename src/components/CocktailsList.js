@@ -1,5 +1,5 @@
 import CocktailCard from "./CocktailCard";
-import { useFavourites } from "../hooks/FavouritesContext";
+import { useFavourites } from "../hooks/useFavourites";
 
 function CocktailsList({ cocktails }) {
   const { addFavourite, removeFavourite, isFavourite } = useFavourites();

@@ -8,6 +8,17 @@ class ApiError extends Error {
   }
 }
 
+function otherParamsToString(otherParams = {}) {
+  const queryString = Object.entries(otherParams)
+    .map(
+      ([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+    )
+    .join("&");
+
+  return queryString ? `&${queryString}` : "";
+}
+
 async function fetchCocktailById({ id }) {
   try {
     const response = await fetch(`${API_BASE}/cocktails/${id}`);
@@ -29,7 +40,12 @@ async function fetchCocktailById({ id }) {
   }
 }
 
-async function fetchCocktails({ page = 1, perPage = 20, otherParams = "" }) {
+async function fetchCocktails({
+  page = 1,
+  perPage = 20,
+  id = "",
+  otherParams = {},
+}) {
   try {
     if (page < 1) {
       throw new ApiError(`Page ${page} was not found`, 404);
@@ -37,8 +53,8 @@ async function fetchCocktails({ page = 1, perPage = 20, otherParams = "" }) {
 
     const response = await fetch(
       `${API_BASE}/cocktails?page=${page}&perPage=${perPage}${
-        otherParams ? `&${otherParams}` : ""
-      }`
+        id ? "&id=" + id : ""
+      }${otherParamsToString(otherParams)}`
     );
 
     if (!response.ok) {

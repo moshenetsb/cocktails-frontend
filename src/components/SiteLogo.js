@@ -6,7 +6,7 @@ function SiteLogo() {
     <div className="site-logo">
       <Link to="/">
         <img src={logo} alt="Cocktails App Logo" />
-        <h1>Cocktails App</h1>
+        <span>Cocktails App</span>
       </Link>
     </div>
   );

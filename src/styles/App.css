@@ -21,10 +21,13 @@ nav {
   align-items: center;
 }
 
-.nav-wrapper h1 {
+.nav-wrapper span {
   color: #fff;
   font-size: 1.4rem;
-  margin-left: 10px;
+  display: block;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 19px 10px;
 }
 
 .site-logo {
@@ -106,7 +109,7 @@ nav {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .nav-links.show {
     display: flex;
     transform: translateX(0);
@@ -235,15 +238,81 @@ main {
   box-sizing: border-box;
 }
 
+/*Favourites styles*/
+.favourites-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 9px 9px -9px rgba(1, 101, 178, 0.6);
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.favourites-header .wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  max-width: 1540px;
+  padding: 20px 3%;
+}
+
+.favourites-header .clear-button {
+  font-size: 1rem;
+  padding: 8px 12px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.favourites-header .clear-button:not(:disabled):hover {
+  background-color: #ff8260;
+}
+
+.favourites-header .clear-button:disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
+.favourites-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #274276;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
 /*Cocktails list styles*/
 .cocktails {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
   align-items: center;
-  column-gap: 3%;
   row-gap: 20px;
+}
+
+@media screen and (max-width: 548px) {
+  .cocktails {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 549px) and (max-width: 768px) {
+  .cocktails {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .cocktails {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .cocktail-card {
@@ -525,7 +594,7 @@ footer {
   width: min(40%, 500px);
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .description-section p {
     width: 88%;
   }

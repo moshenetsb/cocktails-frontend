@@ -1,7 +1,7 @@
 import MainLayout from "../layouts/MainLayout";
 import NotFound from "../components/NotFound";
 
-function NotFoundScreen(params) {
+function NotFoundScreen() {
   return (
     <MainLayout>
       <NotFound />

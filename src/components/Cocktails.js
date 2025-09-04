@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import CocktailsList from "./CocktailsList";
 import Pagination from "./Pagination";
 import NoCocktails from "./NoCocktails";
@@ -8,19 +8,24 @@ import NotFound from "./NotFound";
 import { default as ErrorComponent } from "./Error";
 import { fetchCocktails } from "../api/cocktails";
 
-function Cocktails() {
+function Cocktails({ ids = "" }) {
   const [state, setState] = useState({
     cocktails: [],
     meta: {},
     loading: true,
     error: null,
   });
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
 
+  if (currentPage < 1) {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.delete("page");
+    setSearchParams(newParams);
+  }
+
   useEffect(() => {
-    const loadCocktails = async (page) => {
+    const loadCocktails = async (page, ids) => {
       try {
         setState({
           cocktails: [],
@@ -29,7 +34,10 @@ function Cocktails() {
           error: null,
         });
 
-        const data = await fetchCocktails({ page });
+        const data = await fetchCocktails({
+          page,
+          id: ids,
+        });
 
         setState({
           cocktails: data.data,
@@ -43,15 +51,19 @@ function Cocktails() {
       }
     };
 
-    loadCocktails(currentPage);
-  }, [currentPage]);
+    loadCocktails(currentPage, ids);
+  }, [currentPage, ids]);
 
   const goToPreviousPage = () => {
-    navigate(`/?page=${currentPage - 1}`);
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set("page", currentPage - 1);
+    setSearchParams(newParams);
   };
 
   const goToNextPage = () => {
-    navigate(`/?page=${currentPage + 1}`);
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set("page", currentPage + 1);
+    setSearchParams(newParams);
   };
 
   const { cocktails, meta, loading, error } = state;
@@ -74,7 +86,9 @@ function Cocktails() {
   }
 
   if (currentPage > meta.lastPage) {
-    return <NotFound />;
+    const newParams = new URLSearchParams(searchParams);
+    newParams.delete("page");
+    setSearchParams(newParams);
   }
 
   if (cocktails.length <= 0) {

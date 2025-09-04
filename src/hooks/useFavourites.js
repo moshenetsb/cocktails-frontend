@@ -30,9 +30,19 @@ function FavouritesProvider(props) {
     return favourites.includes(id);
   }
 
+  function clearFavourites() {
+    setFavourites([]);
+  }
+
   return (
     <FavouritesContext.Provider
-      value={{ favourites, addFavourite, removeFavourite, isFavourite }}
+      value={{
+        favourites,
+        addFavourite,
+        removeFavourite,
+        isFavourite,
+        clearFavourites,
+      }}
       {...props}
     />
   );

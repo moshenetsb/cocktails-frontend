@@ -29,7 +29,11 @@ function CocktailCard({
         <p>{category}</p>
       </div>
       <div className="cocktail-card-actions">
-        <button className="details-button" onClick={handleRedirectToDetails}>
+        <button
+          className="details-button"
+          onClick={handleRedirectToDetails}
+          aria-label="View cocktail details"
+        >
           Details
         </button>
         <button

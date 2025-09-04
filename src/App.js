@@ -6,7 +6,7 @@ import HomeScreen from "./screens/HomeScreen.js";
 import FavouritesScreen from "./screens/FavouritesScreen.js";
 import CocktailDetailsScreen from "./screens/CocktailDetailsScreen.js";
 import NotFoundScreen from "./screens/NotFoundScreen.js";
-import { FavouritesProvider } from "./hooks/FavouritesContext.js";
+import { FavouritesProvider } from "./hooks/useFavourites.js";
 
 function App() {
   //------------------------------------------
