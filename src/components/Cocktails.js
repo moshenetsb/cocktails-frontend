@@ -8,7 +8,7 @@ import NotFound from "./NotFound";
 import { default as ErrorComponent } from "./Error";
 import { fetchCocktails } from "../api/cocktails";
 
-function Cocktails({ ids = "" }) {
+function Cocktails({ ids = "", filterIsEnable = true }) {
   const [state, setState] = useState({
     cocktails: [],
     meta: {},
@@ -19,13 +19,11 @@ function Cocktails({ ids = "" }) {
   const currentPage = Number(searchParams.get("page")) || 1;
 
   if (currentPage < 1) {
-    const newParams = new URLSearchParams(searchParams);
-    newParams.delete("page");
-    setSearchParams(newParams);
+    setSearchParams({ ...searchParams, page: 1 });
   }
 
   useEffect(() => {
-    const loadCocktails = async (page, ids) => {
+    const loadCocktails = async (page, ids, otherParams) => {
       try {
         setState({
           cocktails: [],
@@ -37,6 +35,7 @@ function Cocktails({ ids = "" }) {
         const data = await fetchCocktails({
           page,
           id: ids,
+          otherParams: filterIsEnable ? otherParams : {},
         });
 
         setState({
@@ -51,19 +50,15 @@ function Cocktails({ ids = "" }) {
       }
     };
 
-    loadCocktails(currentPage, ids);
-  }, [currentPage, ids]);
+    loadCocktails(currentPage, ids, readOtherParams(searchParams));
+  }, [currentPage, ids, searchParams, filterIsEnable]);
 
   const goToPreviousPage = () => {
-    const newParams = new URLSearchParams(searchParams);
-    newParams.set("page", currentPage - 1);
-    setSearchParams(newParams);
+    setSearchParams({ ...searchParams, page: currentPage - 1 });
   };
 
   const goToNextPage = () => {
-    const newParams = new URLSearchParams(searchParams);
-    newParams.set("page", currentPage + 1);
-    setSearchParams(newParams);
+    setSearchParams({ ...searchParams, page: currentPage + 1 });
   };
 
   const { cocktails, meta, loading, error } = state;
@@ -108,4 +103,19 @@ function Cocktails({ ids = "" }) {
   );
 }
 
+function readOtherParams(searchParams) {
+  const filters = Object.fromEntries(
+    Object.entries({
+      sort: searchParams.get("sort"),
+      alcoholic: searchParams.get("alcoholic"),
+      category: searchParams.get("category"),
+      glass: searchParams.get("glass"),
+      name: searchParams.get("name"),
+    }).filter(([_, value]) => value !== null)
+  );
+
+  return filters;
+}
+
+export { readOtherParams };
 export default Cocktails;

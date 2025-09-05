@@ -239,7 +239,7 @@ main {
 }
 
 /*Favourites styles*/
-.favourites-header {
+header {
   width: 100%;
   display: flex;
   align-items: center;
@@ -258,7 +258,7 @@ main {
   padding: 20px 3%;
 }
 
-.favourites-header .clear-button {
+.favourites-header button {
   font-size: 1rem;
   padding: 8px 12px;
   background-color: #ff6347;
@@ -269,11 +269,11 @@ main {
   margin-left: auto;
 }
 
-.favourites-header .clear-button:not(:disabled):hover {
+.favourites-header button:not(:disabled):hover {
   background-color: #ff8260;
 }
 
-.favourites-header .clear-button:disabled {
+.favourites-header button:disabled {
   background-color: lightgray;
   cursor: not-allowed;
 }
@@ -285,6 +285,99 @@ main {
   color: #274276;
   text-transform: uppercase;
   letter-spacing: 3px;
+}
+
+/*Filter panel styles*/
+.filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.filter-panel label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.filter-panel input,
+.filter-panel select {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  max-width: 150px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.filter-panel button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  max-width: 300px;
+}
+
+.filter-panel .filter-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+}
+
+@media (max-width: 568px) {
+  .filter-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-panel input,
+  .filter-panel select {
+    max-width: 100%;
+  }
+
+  .filter-panel button {
+    margin-top: 0.5rem;
+  }
+
+  .filter-panel .form-block {
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+.filter-panel .form-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter-panel button {
+  flex: 1;
+  font-size: 1rem;
+  padding: 8px 12px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filter-panel button:not(:disabled):hover {
+  background-color: #ff8260;
 }
 
 /*Cocktails list styles*/

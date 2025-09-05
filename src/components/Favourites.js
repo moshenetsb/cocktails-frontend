@@ -9,7 +9,7 @@ function Favourites() {
     return <NoCocktails message="You have no favourite cocktails yet." />;
   }
 
-  return <Cocktails ids={favourites.join(",")} />;
+  return <Cocktails ids={favourites.join(",")} filterIsEnable={false} />;
 }
 
 export default Favourites;
