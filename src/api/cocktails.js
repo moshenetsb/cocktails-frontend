@@ -10,10 +10,7 @@ class ApiError extends Error {
 
 function otherParamsToString(otherParams = {}) {
   const queryString = Object.entries(otherParams)
-    .map(
-      ([key, value]) =>
-        `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-    )
+    .map(([key, value]) => `${key}=${value}`)
     .join("&");
 
   return queryString ? `&${queryString}` : "";
@@ -71,4 +68,43 @@ async function fetchCocktails({
   }
 }
 
-export { fetchCocktailById, fetchCocktails };
+async function fetchCategories() {
+  try {
+    const response = await fetch(`${API_BASE}/cocktails/categories`);
+
+    if (!response.ok) {
+      throw new ApiError(
+        "Failed to fetch cocktail categories",
+        response.status
+      );
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      throw error;
+    }
+    throw new ApiError("Network error or invalid API_URL", 0);
+  }
+}
+
+async function fetchGlasses() {
+  try {
+    const response = await fetch(`${API_BASE}/cocktails/glasses`);
+
+    if (!response.ok) {
+      throw new ApiError("Failed to fetch info about glasses", response.status);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      throw error;
+    }
+    throw new ApiError("Network error or invalid API_URL", 0);
+  }
+}
+
+export { fetchCocktailById, fetchCocktails, fetchCategories, fetchGlasses };

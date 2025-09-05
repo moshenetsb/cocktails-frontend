@@ -1,9 +1,47 @@
 import { useSearchParams } from "react-router-dom";
 import { readOtherParams } from "./Cocktails";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { fetchCategories, fetchGlasses } from "../api/cocktails";
 
 function FiltersForm() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [state, setState] = useState({
+    cocktailCategories: [],
+    glasses: [],
+    error: null,
+  });
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        setState({
+          cocktailCategories: [],
+          glasses: [],
+          error: null,
+        });
+
+        const [categoriesRes, glassesRes] = await Promise.all([
+          fetchCategories(),
+          fetchGlasses(),
+        ]);
+
+        setState({
+          cocktailCategories: categoriesRes.data,
+          glasses: glassesRes.data,
+          error: null,
+        });
+      } catch (e) {
+        console.error(e);
+        setState({
+          cocktailCategories: [],
+          glasses: [],
+          error: e,
+        });
+      }
+    };
+
+    loadData();
+  }, []);
 
   const [filters, setFilters] = useState({
     sort: "",
@@ -63,6 +101,7 @@ function FiltersForm() {
           onChange={handleChange}
         >
           <option value="">All</option>
+          {tabToOptionList(state.cocktailCategories)}
         </select>
       </div>
 
@@ -89,6 +128,7 @@ function FiltersForm() {
           onChange={handleChange}
         >
           <option value="">All</option>
+          {tabToOptionList(state.glasses)}
         </select>
       </div>
 
@@ -116,6 +156,14 @@ function FiltersForm() {
       </div>
     </form>
   );
+}
+
+function tabToOptionList(tab = []) {
+  return tab.map((value) => (
+    <option key={value} value={value}>
+      {value}
+    </option>
+  ));
 }
 
 export default FiltersForm;
