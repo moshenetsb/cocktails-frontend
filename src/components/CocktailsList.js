@@ -2,7 +2,7 @@ import CocktailCard from "./CocktailCard";
 import { useFavourites } from "../hooks/useFavourites";
 
 function CocktailsList({ cocktails }) {
-  const { addFavourite, removeFavourite, isFavourite } = useFavourites();
+  const { dispatch: favouriteDispatch, isFavourite } = useFavourites();
 
   return (
     <div className="cocktails">
@@ -11,8 +11,7 @@ function CocktailsList({ cocktails }) {
           key={cocktail.id}
           {...cocktail}
           favourite={isFavourite(cocktail.id)}
-          addFavourite={addFavourite}
-          removeFavourite={removeFavourite}
+          favouriteDispatch={favouriteDispatch}
         />
       ))}
     </div>

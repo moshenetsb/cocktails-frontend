@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Heart } from "../assets/heart.svg";
+import { FAVOURITES_ACTIONS } from "../hooks/useFavourites";
 
 function CocktailCard({
   id,
@@ -7,8 +8,7 @@ function CocktailCard({
   category,
   imageUrl,
   favourite = false,
-  addFavourite,
-  removeFavourite,
+  favouriteDispatch,
 }) {
   const navigate = useNavigate();
 
@@ -17,8 +17,8 @@ function CocktailCard({
   }
 
   function toggleFavourite() {
-    if (favourite) removeFavourite(id);
-    else addFavourite(id);
+    if (favourite) favouriteDispatch({ type: FAVOURITES_ACTIONS.REMOVE, id });
+    else favouriteDispatch({ type: FAVOURITES_ACTIONS.ADD, id });
   }
 
   return (

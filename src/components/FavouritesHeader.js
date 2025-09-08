@@ -1,13 +1,17 @@
 import { useFavourites } from "../hooks/useFavourites";
+import { FAVOURITES_ACTIONS } from "../hooks/useFavourites";
 
 function FavouritesHeader() {
-  const { favourites, clearFavourites } = useFavourites();
+  const { favourites, dispatch: favouriteDispatch } = useFavourites();
 
   return (
     <header className="favourites-header">
       <div className="wrapper">
         <h1>Favourites</h1>
-        <button onClick={clearFavourites} disabled={favourites.length === 0}>
+        <button
+          onClick={() => favouriteDispatch({ type: FAVOURITES_ACTIONS.CLEAR })}
+          disabled={favourites.length === 0}
+        >
           Clear All
         </button>
       </div>

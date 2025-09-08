@@ -1,10 +1,30 @@
-import { useContext, createContext, useState, useEffect } from "react";
+import { useContext, createContext, useReducer, useEffect } from "react";
 
 const FavouritesContext = createContext();
 FavouritesContext.displayName = "FavouritesContext";
 
+const FAVOURITES_ACTIONS = {
+  ADD: "ADD",
+  REMOVE: "REMOVE",
+  CLEAR: "CLEAR",
+};
+
+function favouritesReducer(state, action) {
+  switch (action.type) {
+    case FAVOURITES_ACTIONS.ADD:
+      if (state.includes(action.id)) return state;
+      return [...state, action.id].sort();
+    case FAVOURITES_ACTIONS.REMOVE:
+      return state.filter((favId) => favId !== action.id);
+    case FAVOURITES_ACTIONS.CLEAR:
+      return [];
+    default:
+      throw new Error(`Unknown action type: ${action.type}`);
+  }
+}
+
 function FavouritesProvider(props) {
-  const [favourites, setFavourites] = useState(() => {
+  const [favourites, dispatch] = useReducer(favouritesReducer, [], () => {
     const saved = window.localStorage.getItem("cocktails-app:favourites");
     return saved ? JSON.parse(saved) : [];
   });
@@ -16,32 +36,16 @@ function FavouritesProvider(props) {
     );
   }, [favourites]);
 
-  function addFavourite(id) {
-    if (!isFavourite(id)) {
-      setFavourites((prev) => [...prev, id].sort());
-    }
-  }
-
-  function removeFavourite(id) {
-    setFavourites((prev) => prev.filter((favId) => favId !== id));
-  }
-
   function isFavourite(id) {
     return favourites.includes(id);
-  }
-
-  function clearFavourites() {
-    setFavourites([]);
   }
 
   return (
     <FavouritesContext.Provider
       value={{
         favourites,
-        addFavourite,
-        removeFavourite,
+        dispatch,
         isFavourite,
-        clearFavourites,
       }}
       {...props}
     />
@@ -60,4 +64,4 @@ function useFavourites() {
   return context;
 }
 
-export { FavouritesProvider, useFavourites };
+export { FAVOURITES_ACTIONS, FavouritesProvider, useFavourites };
