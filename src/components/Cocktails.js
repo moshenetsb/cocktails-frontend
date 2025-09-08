@@ -54,11 +54,13 @@ function Cocktails({ ids = "", filterIsEnable = true }) {
   }, [currentPage, ids, searchParams, filterIsEnable]);
 
   const goToPreviousPage = () => {
-    setSearchParams({ ...searchParams, page: currentPage - 1 });
+    searchParams.set("page", currentPage - 1);
+    setSearchParams(searchParams);
   };
 
   const goToNextPage = () => {
-    setSearchParams({ ...searchParams, page: currentPage + 1 });
+    searchParams.set("page", currentPage + 1);
+    setSearchParams(searchParams);
   };
 
   const { cocktails, meta, loading, error } = state;
