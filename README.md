@@ -25,7 +25,7 @@ It fetches cocktail data from the [Cocktails API](https://cocktails.solvro.pl) p
 - 🔍 **Search cocktails by name**
 - 📊 **Sort cocktails** by different parameters (name, category, glass, etc.)
 - 🧃 **Filter cocktails** by categories
-- ⭐ **Add cocktails to favorites**
+- ⭐ **Add cocktails to favourites**
 - 📋 View detailed drink information
 - ⚠️ **Error handling** – dedicated error screen for cases like 404 or failed API requests
 - 📱 **Responsive design** – different layout optimized for mobile and desktop devices
@@ -35,21 +35,27 @@ It fetches cocktail data from the [Cocktails API](https://cocktails.solvro.pl) p
 > Screenshots highlighting the main features of the application:
 
 ### 🔍 Search & Filters
+
 ![Search and filter cocktails](./screenshots/search-filters.png)
 
 ### 📊 Sorting
+
 ![Sort cocktails](./screenshots/sorting.png)
 
-### ⭐ Favorites
-![Favorites list](./screenshots/favorites.png)
+### ⭐ Favourites
+
+![Favourites list](./screenshots/favourites.png)
 
 ### 📋 Cocktail details
+
 ![Cocktail details view](./screenshots/details.png)
 
 ### ⚠️ Error screen
+
 ![Error screen](./screenshots/error.png)
 
 ### 📱 Mobile vs Desktop
+
 Mobile view:  
 ![Mobile view](./screenshots/mobile.png)
 
