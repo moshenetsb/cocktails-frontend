@@ -4,8 +4,7 @@ import FilterPanel from "../components/FiltersForm";
 
 function HomeScreen() {
   return (
-    <MainLayout>
-      <FilterPanel />
+    <MainLayout header={FilterPanel}>
       <Cocktails filterIsEnable={true} />
     </MainLayout>
   );

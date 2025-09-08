@@ -78,83 +78,91 @@ function FiltersForm() {
     setSearchParams({});
   }
 
+  if (state.error) {
+    alert(
+      "Oops! Could not load cocktail categories or glass types. Please try again later."
+    );
+  }
+
   return (
-    <form className="filter-panel" onSubmit={handleSubmit}>
-      <div className="form-block">
-        <label htmlFor="name">Cocktail name:</label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          placeholder="Type here..."
-          value={filters.name}
-          onChange={handleChange}
-        />
-      </div>
+    <header>
+      <form className="filter-panel" onSubmit={handleSubmit}>
+        <div className="form-block">
+          <label htmlFor="name">Cocktail name:</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Type here..."
+            value={filters.name}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div className="form-block">
-        <label htmlFor="category">Category:</label>
-        <select
-          id="category"
-          name="category"
-          value={filters.category}
-          onChange={handleChange}
-        >
-          <option value="">All</option>
-          {tabToOptionList(state.cocktailCategories)}
-        </select>
-      </div>
+        <div className="form-block">
+          <label htmlFor="category">Category:</label>
+          <select
+            id="category"
+            name="category"
+            value={filters.category}
+            onChange={handleChange}
+          >
+            <option value="">All</option>
+            {tabToOptionList(state.cocktailCategories)}
+          </select>
+        </div>
 
-      <div className="form-block">
-        <label htmlFor="alcoholic">Alcoholic:</label>
-        <select
-          id="alcoholic"
-          name="alcoholic"
-          value={filters.alcoholic}
-          onChange={handleChange}
-        >
-          <option value="">-</option>
-          <option value="true">True</option>
-          <option value="false">False</option>
-        </select>
-      </div>
+        <div className="form-block">
+          <label htmlFor="alcoholic">Alcoholic:</label>
+          <select
+            id="alcoholic"
+            name="alcoholic"
+            value={filters.alcoholic}
+            onChange={handleChange}
+          >
+            <option value="">-</option>
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+        </div>
 
-      <div className="form-block">
-        <label htmlFor="glass">Glass:</label>
-        <select
-          id="glass"
-          name="glass"
-          value={filters.glass}
-          onChange={handleChange}
-        >
-          <option value="">All</option>
-          {tabToOptionList(state.glasses)}
-        </select>
-      </div>
+        <div className="form-block">
+          <label htmlFor="glass">Glass:</label>
+          <select
+            id="glass"
+            name="glass"
+            value={filters.glass}
+            onChange={handleChange}
+          >
+            <option value="">All</option>
+            {tabToOptionList(state.glasses)}
+          </select>
+        </div>
 
-      <div className="form-block">
-        <label htmlFor="sort">Sort:</label>
-        <select
-          id="sort"
-          name="sort"
-          value={filters.sort}
-          onChange={handleChange}
-        >
-          <option value="">-</option>
-          <option value="+name">Name A-Z</option>
-          <option value="-name">Name Z-A</option>
-          <option value="+category">Category A-Z</option>
-          <option value="-category">Category Z-A</option>
-          <option value="+glass">Glass A-Z</option>
-          <option value="-glass">Glass Z-A</option>
-        </select>
-      </div>
+        <div className="form-block">
+          <label htmlFor="sort">Sort:</label>
+          <select
+            id="sort"
+            name="sort"
+            value={filters.sort}
+            onChange={handleChange}
+          >
+            <option value="">-</option>
+            <option value="+name">Name A-Z</option>
+            <option value="-name">Name Z-A</option>
+            <option value="+category">Category A-Z</option>
+            <option value="-category">Category Z-A</option>
+            <option value="+glass">Glass A-Z</option>
+            <option value="-glass">Glass Z-A</option>
+          </select>
+        </div>
 
-      <div className="filter-actions">
-        <button type="submit">Apply Filters</button>
-        <button onClick={clearFilters}>Clear Filters</button>
-      </div>
-    </form>
+        <div className="filter-actions">
+          <button type="submit">Apply Filters</button>
+          <button onClick={clearFilters}>Clear Filters</button>
+        </div>
+      </form>
+    </header>
   );
 }
 

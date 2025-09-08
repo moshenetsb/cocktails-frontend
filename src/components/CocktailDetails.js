@@ -49,49 +49,38 @@ function CocktailDetails() {
 
   return (
     <div className="cocktailDetails">
-      <h2>{cocktail.name}</h2>
+      <h1>{cocktail.name}</h1>
 
-      <section>
-        <img src={cocktail.imageUrl} alt={"Image of cocktail " + id}></img>
-        <div className="content">
-          <p>
-            <b>
-              <u>Category:</u>
-            </b>{" "}
-            {cocktail.category}
-          </p>
-          <p>
-            <b>
-              <u>Glass:</u>
-            </b>{" "}
-            {cocktail.glass}
-          </p>
-          <p>
-            <b>
-              <u>Instruction:</u>
-            </b>{" "}
-            {cocktail.instructions}
-          </p>
-          <details>
-            <summary>
-              <b>
-                <u>Ingredients</u>
-              </b>
-            </summary>{" "}
-            {cocktail.ingredients.lenght === 0 ? (
-              <p>No information about ingredients</p>
-            ) : (
-              <ul>
-                {cocktail.ingredients.map((ingredient) => (
-                  <li key={ingredient.id}>
-                    {ingredient.name} {ingredient.alcohol ? " (alcohol)" : ""}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </details>
+      <div className="main-info">
+        <img src={cocktail.imageUrl} alt={cocktail.name} />
+
+        <div className="cocktail-details-info">
+          <h2>Category:</h2>
+          <p>{cocktail.category}</p>
+
+          <h2>Glass:</h2>
+          <p>{cocktail.glass}</p>
+
+          <h2>Alcoholic:</h2>
+          <p>{cocktail.alcoholic ? "Yes" : "No"}</p>
         </div>
-      </section>
+      </div>
+
+      <div className="cocktail-instructions">
+        <h2>Instructions:</h2>
+        <p>{cocktail.instructions}</p>
+      </div>
+
+      <div className="cocktail-ingredients">
+        <h2>Ingredients:</h2>
+        <ul>
+          {cocktail.ingredients.map((ing) => (
+            <li key={ing.id}>
+              {ing.measure} {ing.name}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
