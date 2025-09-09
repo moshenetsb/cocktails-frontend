@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/cocktails-frontend/static/css/main.edf9d61d.css",
-    "main.js": "/cocktails-frontend/static/js/main.244fef81.js",
+    "main.css": "/cocktails-frontend/static/css/main.08282106.css",
+    "main.js": "/cocktails-frontend/static/js/main.b529ab8a.js",
     "static/media/no_cocktails_available.png": "/cocktails-frontend/static/media/no_cocktails_available.01493dcf6289278b5fe8.png",
     "static/media/logo_solvro_mono.png": "/cocktails-frontend/static/media/logo_solvro_mono.fd8ac667da5c3407eb64.png",
     "index.html": "/cocktails-frontend/index.html",
     "static/media/heart.svg": "/cocktails-frontend/static/media/heart.8ae5644a811e58742a9f620ab0ec9790.svg",
-    "main.edf9d61d.css.map": "/cocktails-frontend/static/css/main.edf9d61d.css.map",
-    "main.244fef81.js.map": "/cocktails-frontend/static/js/main.244fef81.js.map"
+    "main.08282106.css.map": "/cocktails-frontend/static/css/main.08282106.css.map",
+    "main.b529ab8a.js.map": "/cocktails-frontend/static/js/main.b529ab8a.js.map"
   },
   "entrypoints": [
-    "static/css/main.edf9d61d.css",
-    "static/js/main.244fef81.js"
+    "static/css/main.08282106.css",
+    "static/js/main.b529ab8a.js"
   ]
 }
