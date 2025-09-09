@@ -663,12 +663,13 @@ header {
 .cocktailDetails .cocktail-ingredients li {
   margin-left: 1.4rem;
   margin-bottom: 10px;
+  font-size: 1rem;
 }
 
 /*Footer styles*/
 footer {
   display: flex;
-  font-size: 1rem;
+  font-size: 0.9rem;
   background-color: #274276;
   flex-direction: column;
   justify-content: center;
