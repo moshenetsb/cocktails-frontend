@@ -297,11 +297,12 @@ header {
 }
 
 .filter-panel {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 12px;
@@ -309,6 +310,13 @@ header {
   margin: 0 3%;
   margin-top: 20px;
   max-width: calc(1540px);
+}
+
+.filter-panel .filters {
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
 .filter-panel label {
@@ -322,7 +330,6 @@ header {
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 0.9rem;
-  max-width: 150px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -343,7 +350,7 @@ header {
   justify-content: center;
   flex-direction: row;
   width: 100%;
-  gap: 10px;
+  gap: 20px;
 }
 
 @media (max-width: 568px) {
@@ -354,7 +361,7 @@ header {
 
   .filter-panel input,
   .filter-panel select {
-    max-width: 100%;
+    width: 100%;
   }
 
   .filter-panel button {
@@ -362,15 +369,14 @@ header {
   }
 
   .filter-panel .form-block {
-    flex-direction: column;
-    flex-wrap: wrap;
     width: 100%;
+    grid-template-columns: 1fr !important;
   }
 }
 
 .filter-panel .form-block {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: 1rem;
 }
