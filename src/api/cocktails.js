@@ -48,6 +48,10 @@ async function fetchCocktails({
       throw new ApiError(`Page ${page} was not found`, 404);
     }
 
+    if (otherParams.name) {
+      otherParams.name = `%${otherParams.name}%`;
+    }
+
     const response = await fetch(
       `${API_BASE}/cocktails?page=${page}&perPage=${perPage}${
         id ? "&id=" + id : ""
