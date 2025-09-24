@@ -49,7 +49,9 @@ async function fetchCocktails({
     }
 
     if (otherParams.name) {
-      otherParams.name = `%${otherParams.name}%`;
+      const encodeQuery = (value) => value.trim().replace(" ", "+");
+
+      otherParams.name = `%${encodeQuery(otherParams.name)}%`;
     }
 
     const response = await fetch(
